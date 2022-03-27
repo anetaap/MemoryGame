@@ -33,7 +33,7 @@ namespace MemoryGame
 
         private void button3_Click(object sender, EventArgs e)
         {
-            _settings.Size1 = 7;
+            _settings.Size1 = 8;
             _settings.Size2 = 9;
             _settings.File = new StreamReader
                 (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores2.json");
@@ -54,7 +54,7 @@ namespace MemoryGame
         private void button5_Click(object sender, EventArgs e)
         {
             _settings.Size1 = 9;
-            _settings.Size2 = 11;
+            _settings.Size2 = 10;
             _settings.File = new StreamReader
                 (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores4.json");
             _settings.File_ = new StreamWriter
@@ -73,27 +73,27 @@ namespace MemoryGame
 
         private void button11_Click(object sender, EventArgs e)
         {
-            _settings.Time = 20;
+            _settings.Time = 2;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            _settings.Time = 30;
+            _settings.Time = 3;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            _settings.Time = 40;
+            _settings.Time = 4;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            _settings.Time = 50;
+            _settings.Time = 5;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            _settings.Time = 60;
+            _settings.Time = 6;
         }
 
         private void button12_Click(object sender, EventArgs e)

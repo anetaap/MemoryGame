@@ -42,8 +42,17 @@ namespace MemoryGame
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.timer2 = new System.Timers.Timer();
             this.timer3 = new System.Timers.Timer();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.increaseTimeBYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize) (this.timer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.timer3)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -52,7 +61,7 @@ namespace MemoryGame
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 28.2F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.label2.Location = new System.Drawing.Point(138, -1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(963, 85);
+            this.label2.Size = new System.Drawing.Size(979, 85);
             this.label2.TabIndex = 4;
             this.label2.Text = "MEMORY GAME";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -60,9 +69,9 @@ namespace MemoryGame
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 690);
+            this.button1.Location = new System.Drawing.Point(0, 754);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1225, 65);
+            this.button1.Size = new System.Drawing.Size(1241, 65);
             this.button1.TabIndex = 5;
             this.button1.Text = "Finish";
             this.button1.UseVisualStyleBackColor = true;
@@ -72,7 +81,7 @@ namespace MemoryGame
             // 
             this.labelScore.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelScore.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.labelScore.Location = new System.Drawing.Point(0, 605);
+            this.labelScore.Location = new System.Drawing.Point(0, 669);
             this.labelScore.Name = "labelScore";
             this.labelScore.Size = new System.Drawing.Size(179, 49);
             this.labelScore.TabIndex = 6;
@@ -82,7 +91,7 @@ namespace MemoryGame
             // 
             this.labelTimer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelTimer.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.labelTimer.Location = new System.Drawing.Point(520, 605);
+            this.labelTimer.Location = new System.Drawing.Point(528, 669);
             this.labelTimer.Name = "labelTimer";
             this.labelTimer.Size = new System.Drawing.Size(178, 49);
             this.labelTimer.TabIndex = 7;
@@ -92,7 +101,7 @@ namespace MemoryGame
             // 
             this.labelMovements.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMovements.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.labelMovements.Location = new System.Drawing.Point(1046, 605);
+            this.labelMovements.Location = new System.Drawing.Point(1062, 669);
             this.labelMovements.Name = "labelMovements";
             this.labelMovements.Size = new System.Drawing.Size(179, 49);
             this.labelMovements.TabIndex = 8;
@@ -106,9 +115,9 @@ namespace MemoryGame
             // start_
             // 
             this.start_.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.start_.Location = new System.Drawing.Point(0, 528);
+            this.start_.Location = new System.Drawing.Point(0, 592);
             this.start_.Name = "start_";
-            this.start_.Size = new System.Drawing.Size(1225, 59);
+            this.start_.Size = new System.Drawing.Size(1241, 59);
             this.start_.TabIndex = 9;
             this.start_.Text = "Start";
             this.start_.UseVisualStyleBackColor = true;
@@ -127,7 +136,7 @@ namespace MemoryGame
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.18939F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.81061F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1225, 405);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1241, 469);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // timer2
@@ -142,12 +151,70 @@ namespace MemoryGame
             this.timer3.SynchronizingObject = this;
             this.timer3.Elapsed += new System.Timers.ElapsedEventHandler(this.timer3_Elapsed_1);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1241, 28);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripMenuItem3, this.increaseTimeBYToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(111, 24);
+            this.toolStripMenuItem1.Text = "Time Settings";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.sToolStripMenuItem, this.sToolStripMenuItem1});
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(190, 24);
+            this.toolStripMenuItem3.Text = "Reduce Time By";
+            // 
+            // sToolStripMenuItem
+            // 
+            this.sToolStripMenuItem.Name = "sToolStripMenuItem";
+            this.sToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.sToolStripMenuItem.Text = "2s";
+            this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
+            // 
+            // sToolStripMenuItem1
+            // 
+            this.sToolStripMenuItem1.Name = "sToolStripMenuItem1";
+            this.sToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
+            this.sToolStripMenuItem1.Text = "3s";
+            this.sToolStripMenuItem1.Click += new System.EventHandler(this.sToolStripMenuItem1_Click);
+            // 
+            // increaseTimeBYToolStripMenuItem
+            // 
+            this.increaseTimeBYToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.sToolStripMenuItem2, this.sToolStripMenuItem3});
+            this.increaseTimeBYToolStripMenuItem.Name = "increaseTimeBYToolStripMenuItem";
+            this.increaseTimeBYToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.increaseTimeBYToolStripMenuItem.Text = "Increase Time BY";
+            // 
+            // sToolStripMenuItem2
+            // 
+            this.sToolStripMenuItem2.Name = "sToolStripMenuItem2";
+            this.sToolStripMenuItem2.Size = new System.Drawing.Size(92, 24);
+            this.sToolStripMenuItem2.Text = "2s";
+            this.sToolStripMenuItem2.Click += new System.EventHandler(this.sToolStripMenuItem2_Click);
+            // 
+            // sToolStripMenuItem3
+            // 
+            this.sToolStripMenuItem3.Name = "sToolStripMenuItem3";
+            this.sToolStripMenuItem3.Size = new System.Drawing.Size(92, 24);
+            this.sToolStripMenuItem3.Text = "3s";
+            this.sToolStripMenuItem3.Click += new System.EventHandler(this.sToolStripMenuItem3_Click);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
-            this.ClientSize = new System.Drawing.Size(1225, 755);
+            this.ClientSize = new System.Drawing.Size(1241, 819);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.start_);
             this.Controls.Add(this.labelMovements);
@@ -155,13 +222,28 @@ namespace MemoryGame
             this.Controls.Add(this.labelScore);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Start";
             this.Text = "Start";
             this.Load += new System.EventHandler(this.Start_Load);
             ((System.ComponentModel.ISupportInitialize) (this.timer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.timer3)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem increaseTimeBYToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem3;
+
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem1;
 
         private System.Timers.Timer timer3;
 

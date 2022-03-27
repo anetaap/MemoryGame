@@ -235,5 +235,25 @@ namespace MemoryGame
         {
             _currentTime++;
         }
+
+        private void sToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            _settings.Time += 2;
+        }
+
+        private void sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _settings.Time -= 2;
+        }
+
+        private void sToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            _settings.Time += 3;
+        }
+
+        private void sToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            _settings.Time -= 3;
+        }
     }
 }

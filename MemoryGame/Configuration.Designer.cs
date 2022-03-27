@@ -106,7 +106,7 @@ namespace MemoryGame
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 47);
             this.button3.TabIndex = 7;
-            this.button3.Text = "63";
+            this.button3.Text = "72";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -128,7 +128,7 @@ namespace MemoryGame
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 47);
             this.button5.TabIndex = 9;
-            this.button5.Text = "99";
+            this.button5.Text = "90";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -156,7 +156,7 @@ namespace MemoryGame
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 47);
             this.button7.TabIndex = 16;
-            this.button7.Text = "60";
+            this.button7.Text = "6";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -167,7 +167,7 @@ namespace MemoryGame
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 47);
             this.button8.TabIndex = 15;
-            this.button8.Text = "50";
+            this.button8.Text = "5";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -178,7 +178,7 @@ namespace MemoryGame
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 47);
             this.button9.TabIndex = 14;
-            this.button9.Text = "40";
+            this.button9.Text = "4";
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -189,7 +189,7 @@ namespace MemoryGame
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 47);
             this.button10.TabIndex = 13;
-            this.button10.Text = "30";
+            this.button10.Text = "3";
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
@@ -200,7 +200,7 @@ namespace MemoryGame
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(75, 47);
             this.button11.TabIndex = 12;
-            this.button11.Text = "20";
+            this.button11.Text = "2";
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
@@ -239,7 +239,7 @@ namespace MemoryGame
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
-            this.ClientSize = new System.Drawing.Size(1045, 704);
+            this.ClientSize = new System.Drawing.Size(1049, 720);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.label4);
