@@ -33,6 +33,10 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+          <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Xml.Linq" />
@@ -94,6 +98,7 @@
         <EmbeddedResource Include="Statistics.resx">
           <DependentUpon>Statistics.cs</DependentUpon>
         </EmbeddedResource>
+        <None Include="packages.config" />
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>
             <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -172,6 +177,7 @@
       <Content Include="Disney\(7).png" />
       <Content Include="Disney\(8).png" />
       <Content Include="Disney\(9).png" />
+      <Content Include="scores.json" />
       <Content Include="Stitch\(1).png" />
       <Content Include="Stitch\(10).png" />
       <Content Include="Stitch\(11).png" />

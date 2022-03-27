@@ -12,3 +12,6 @@ C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\
 C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Configuration.resources
 C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Start.resources
 C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Statistics.resources
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\bin\Debug\Newtonsoft.Json.xml
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.csproj.CopyComplete

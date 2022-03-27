@@ -10,6 +10,7 @@ namespace MemoryGame
     {
         private Settings _settings;
         private Form1 _start;
+        private Statistics _statistics;
         private int _score;
         private int _time;
         private int _clickTime;
@@ -26,7 +27,7 @@ namespace MemoryGame
             _settings = settings;
             _start = start;
             _images = new List<Image>();
-            
+
             InitWall();
         }
 
@@ -162,6 +163,7 @@ namespace MemoryGame
 
                     _movements++;
                     labelMovements.Text = _movements + " Moves";
+                    endOfGame();
                     
                 };
                 
@@ -179,8 +181,7 @@ namespace MemoryGame
             }
 
             tableLayoutPanel1.Show();
-
-
+            
         }
 
         private void timeLimit()
@@ -205,8 +206,22 @@ namespace MemoryGame
         {
             if (_score * 2 == _settings.Size1 * _settings.Size2)
             {
+                timer1.Stop();
                 MessageBox.Show("Congratulations");
-                _start.Show();
+
+                if (_settings.Scores.ContainsKey(_settings.Nick))
+                {
+                    if (_time < _settings.Scores[_settings.Nick])
+                        _settings.Scores[_settings.Nick] = _time;
+                }
+                else
+                {
+                    _settings.Scores[_settings.Nick] = _time;   
+                }
+                _settings.scoresToJson();
+                _statistics = new Statistics(_start, _settings);
+                _statistics.Show();
+                
                 Close();
             }
         }
