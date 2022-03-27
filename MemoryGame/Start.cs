@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace MemoryGame
@@ -9,20 +10,22 @@ namespace MemoryGame
     {
         private Settings _settings;
         private Form1 _start;
-        private int _score = 0;
+        private int _score;
         private int _time;
+        private int _clickTime;
         private int _movements = 0;
         private List<Image> _images;
-        public Start(Settings settings,Form1 start)
+        private Dictionary<String, Button> _visible;
+        private int _currentTime;
+
+        public Start(Settings settings, Form1 start)
         {
             InitializeComponent();
             
             _settings = settings;
             _start = start;
             _images = new List<Image>();
-
-            labelScore.Text = $"Score: {_score}";
-
+            
             InitWall();
         }
 
@@ -101,6 +104,7 @@ namespace MemoryGame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            labelScore.Text = $"Score: {_score}";
             labelTimer.Text = $"Time: {_time}";
             _time++;
         }
@@ -109,7 +113,12 @@ namespace MemoryGame
         {
             tableLayoutPanel1.Hide();
             tableLayoutPanel1.Controls.Clear();
+            
+            timer2.Enabled = true;
+            timer3.Enabled = true;
+            _score = 0;
             _time = 0;
+            _visible = new Dictionary<String, Button>();
 
             foreach (var path in Shuffle())
             {
@@ -118,17 +127,35 @@ namespace MemoryGame
 
                 imgControl.Click += (o, args) =>
                 {
-                    if (imgControl.Image == null)
+                    if (imgControl.Image == null && _visible.Count < 2)
                     {
                         imgControl.Image = _images[tableLayoutPanel1.Controls.IndexOf(imgControl)];
+                        imgControl.BackColor = Color.SeaShell;
+                        if(_visible.ContainsKey(path))
+                        {
+                            _score++;
+                            imgControl.BackColor = Color.SeaShell;
+                            _visible[path].BackColor = Color.SeaShell;
+                            imgControl.Enabled = false;
+                            _visible[path].Enabled = false;
+                            _visible.Remove(path);
+                        }
+                        else
+                        {
+                            _visible[path] = imgControl;   
+                        }
+
                     } else
                     {
                         imgControl.Image = null;
+                        imgControl.BackColor = Color.LightSlateGray;
+                        _visible.Remove(path);
                     }
-                    
+
                     _movements++;
                     labelMovements.Text = _movements + " Moves";
                 };
+                
 
                 imageIcon = new Bitmap(imageIcon, new Size(imageIcon.Size.Width / 2, imageIcon.Size.Height / 2));
 
@@ -145,6 +172,15 @@ namespace MemoryGame
 
             timer1.Enabled = true;
         }
-        
+
+        private void timer2_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            _clickTime++;
+        }
+
+        private void timer3_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            _currentTime++;
+        }
     }
 }
