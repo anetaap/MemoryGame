@@ -1,0 +1,14 @@
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\bin\Debug\MemoryGame.exe.config
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\bin\Debug\MemoryGame.exe
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\bin\Debug\MemoryGame.pdb
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.csproj.AssemblyReference.cache
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Properties.Resources.resources
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.csproj.GenerateResource.cache
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.csproj.CoreCompileInputs.cache
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.exe
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.pdb
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Form1.resources
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Configuration.resources
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Start.resources
+C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Statistics.resources
