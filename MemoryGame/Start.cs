@@ -14,7 +14,7 @@ namespace MemoryGame
         private int _score;
         private int _time;
         private int _clickTime;
-        private int _movements = 0;
+        private int _movements;
         private List<Image> _images;
         private Dictionary<String, Button> _visible;
         private int _currentTime;
@@ -62,12 +62,12 @@ namespace MemoryGame
         
         private void Shuffle(List<string> list)
         {
-            Random random_ = new Random();
+            Random random = new Random();
             int len = list.Count;
             while (len > 1)
             {
                 len--;
-                int rand = random_.Next(len + 1);
+                int rand = random.Next(len + 1);
                 (list[rand], list[len]) = (list[len], list[rand]);
             }
         }
@@ -106,13 +106,13 @@ namespace MemoryGame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            labelScore.Text = $"Rigth: {_score}";
-            labelTimer.Text = $"Time: {_time}";
+            labelScore.Text = $@"Rigth: {_score}";
+            labelTimer.Text = $@"Time: {_time}";
             _time++;
-            timeLimit();
+            TimeLimit();
         }
 
-        private void showTime(List<String> paths)
+        private void ShowTime(List<String> paths)
         {
             tableLayoutPanel1.Hide();
             tableLayoutPanel1.Controls.Clear();
@@ -149,8 +149,6 @@ namespace MemoryGame
             _timers = new Dictionary<Button, int>();
 
             List<String> imgPath = Shuffle();
-            
-            showTime(imgPath);
 
             foreach (var path in imgPath)
             {
@@ -189,8 +187,8 @@ namespace MemoryGame
                     }
 
                     _movements++;
-                    labelMovements.Text = _movements + " Moves";
-                    endOfGame();
+                    labelMovements.Text = _movements + @" Moves";
+                    EndOfGame();
                     
                 };
                 
@@ -211,7 +209,7 @@ namespace MemoryGame
             
         }
 
-        private void timeLimit()
+        private void TimeLimit()
         {
             foreach (KeyValuePair<String, Button> button in _visible)
             {
@@ -229,12 +227,12 @@ namespace MemoryGame
             }
         }
 
-        private void endOfGame()
+        private void EndOfGame()
         {
             if (_score * 2 == _settings.Size1 * _settings.Size2)
             {
                 timer1.Stop();
-                MessageBox.Show("Congratulations");
+                MessageBox.Show(@"Congratulations");
 
                 if (_settings.Scores.ContainsKey(_settings.Nick))
                 {
