@@ -112,6 +112,29 @@ namespace MemoryGame
             timeLimit();
         }
 
+        private void showTime(List<String> paths)
+        {
+            tableLayoutPanel1.Hide();
+            tableLayoutPanel1.Controls.Clear();
+            
+            foreach (var path in paths)
+            {
+                var imgControl = new Button();
+                var imageIcon = Image.FromFile(path);
+                imgControl.Image = _images[tableLayoutPanel1.Controls.IndexOf(imgControl)];
+                imageIcon = new Bitmap(imageIcon, new Size(imageIcon.Size.Width / 2, imageIcon.Size.Height / 2));
+
+                imgControl.Size = imageIcon.Size;
+
+                _images.Add(imageIcon);
+                tableLayoutPanel1.Controls.Add(imgControl);
+
+                tableLayoutPanel1.Controls[tableLayoutPanel1.Controls.Count - 1].Anchor =
+                    AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+            }
+            tableLayoutPanel1.Show();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             tableLayoutPanel1.Hide();
@@ -125,7 +148,11 @@ namespace MemoryGame
             _visible = new Dictionary<String, Button>();
             _timers = new Dictionary<Button, int>();
 
-            foreach (var path in Shuffle())
+            List<String> imgPath = Shuffle();
+            
+            showTime(imgPath);
+
+            foreach (var path in imgPath)
             {
                 var imgControl = new Button();
                 var imageIcon = Image.FromFile(path);
