@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 
 namespace MemoryGame
 {
@@ -21,10 +20,12 @@ namespace MemoryGame
 
         private void showStats()
         {
-            var sortedDict = from entry in _settings.Scores orderby entry.Value ascending select entry;
+            var sortedDict = from entry 
+                in _settings.Scores orderby entry.Value ascending select entry;
+            
             foreach (var settingsScore in sortedDict)
             {
-                String score = settingsScore.Key + " best time: " + settingsScore.Value;
+                String score = settingsScore.Key + " best score: " + settingsScore.Value;
                 listBox1.Items.Add(score);
             }
             
@@ -45,6 +46,11 @@ namespace MemoryGame
         {
             _start.Show();
             Close();
+        }
+
+        private void Statistics_Load(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
         }
     }
 }

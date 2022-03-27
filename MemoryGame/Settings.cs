@@ -9,14 +9,24 @@ namespace MemoryGame
     {
         private String _nick;
         private int time = 5;
-        private int size1 = 2;
-        private int size2 = 3;
+        private int size1 = 6;
+        private int size2 = 8;
         private string _path;
-        private static StreamReader _file = new StreamReader
-            (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores.json");
-        private static String _json = _file.ReadToEnd();
-        private Dictionary<String, int> _scores = JsonConvert.DeserializeObject<Dictionary<String,int>>(_json) ;
+        private StreamReader _file;
+        private StreamWriter _file_;
+        private String _json;
+        private Dictionary<String, int> _scores;
 
+        public StreamReader File
+        {
+            get => _file;
+            set => _file = value;
+        }
+        public StreamWriter File_
+        {
+            get => _file_;
+            set => _file_ = value;
+        }
         public Dictionary<string, int> Scores
         {
             get => _scores;
@@ -26,8 +36,8 @@ namespace MemoryGame
         public void scoresToJson()
         {
             _file.Close();
-            StreamWriter _file_ = new StreamWriter
-                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores.json");
+            _file_= new StreamWriter
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json");
             String _newScore = JsonConvert.SerializeObject(_scores);
             _file_.Write(_newScore);
             
@@ -38,6 +48,12 @@ namespace MemoryGame
         {
             _nick = nick;
             _path = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\Stitch\";
+            _file = new StreamReader
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json");
+            _json = _file.ReadToEnd();
+            _scores = JsonConvert.DeserializeObject<Dictionary<String, int>>(_json);
+            
+            _file.Close();
         }
 
         public int Time

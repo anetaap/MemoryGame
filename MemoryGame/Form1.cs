@@ -21,7 +21,12 @@ namespace MemoryGame
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public Form1(Settings settings)
+        {
+            player = settings;
+        }
+
+        private void start()
         {
             String name = textBox1.Text;
 
@@ -32,21 +37,33 @@ namespace MemoryGame
             else
             {
                 player = new Settings(name);
-
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            if(player == null)
+                start();
+            else
+            {
                 StartGame = new Start(player, this);
             
                 StartGame.Show();
                 Hide();
             }
-  
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _configuration  = new Configuration(player, this);
+            if(player == null)
+                start();
+            else
+            {
+                _configuration  = new Configuration(player, this);
             
-            _configuration.Show();
-            Hide();
+                _configuration.Show();
+                Hide();   
+            }
         }
     }
 }

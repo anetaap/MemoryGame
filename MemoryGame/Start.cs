@@ -106,7 +106,7 @@ namespace MemoryGame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            labelScore.Text = $"Score: {_score}";
+            labelScore.Text = $"Rigth: {_score}";
             labelTimer.Text = $"Time: {_time}";
             _time++;
             timeLimit();
@@ -211,12 +211,12 @@ namespace MemoryGame
 
                 if (_settings.Scores.ContainsKey(_settings.Nick))
                 {
-                    if (_time < _settings.Scores[_settings.Nick])
-                        _settings.Scores[_settings.Nick] = _time;
+                    if (_time * _movements < _settings.Scores[_settings.Nick])
+                        _settings.Scores[_settings.Nick] = _time * _movements;
                 }
                 else
                 {
-                    _settings.Scores[_settings.Nick] = _time;   
+                    _settings.Scores[_settings.Nick] = _time * _movements;   
                 }
                 _settings.scoresToJson();
                 _statistics = new Statistics(_start, _settings);

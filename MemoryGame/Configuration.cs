@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace MemoryGame
@@ -6,11 +7,11 @@ namespace MemoryGame
     public partial class Configuration : Form
     {
         private Form1 start_;
-        private Settings settings;
-        public Configuration(Settings _settings, Form1 start)
+        private Settings _settings;
+        public Configuration(Settings settings, Form1 start)
         {
             InitializeComponent();
-            settings = _settings;
+            _settings = settings;
             start_ = start;
         }
         
@@ -22,67 +23,87 @@ namespace MemoryGame
 
         private void button2_Click(object sender, EventArgs e)
         {
-            settings.Size1 = 6;
-            settings.Size2 = 8;
+            _settings.Size1 = 6;
+            _settings.Size2 = 8;
+            _settings.File = new StreamReader
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json");
+            _settings.File_ = new StreamWriter
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            settings.Size1 = 7;
-            settings.Size2 = 9;
+            _settings.Size1 = 7;
+            _settings.Size2 = 9;
+            _settings.File = new StreamReader
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores2.json");
+            _settings.File_ = new StreamWriter
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores2.json");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            settings.Size1 = 8;
-            settings.Size2 = 10;
+            _settings.Size1 = 8;
+            _settings.Size2 = 10;
+            _settings.File = new StreamReader
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores3.json");
+            _settings.File_ = new StreamWriter
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores3.json");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            settings.Size1 = 9;
-            settings.Size2 = 11;
+            _settings.Size1 = 9;
+            _settings.Size2 = 11;
+            _settings.File = new StreamReader
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores4.json");
+            _settings.File_ = new StreamWriter
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores4.json");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            settings.Size1 = 10;
-            settings.Size2 = 12;
+            _settings.Size1 = 10;
+            _settings.Size2 = 12;
+            _settings.File = new StreamReader
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores5.json");
+            _settings.File_ = new StreamWriter
+                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores5.json");
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            settings.Time = 20;
+            _settings.Time = 20;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            settings.Time = 30;
+            _settings.Time = 30;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            settings.Time = 40;
+            _settings.Time = 40;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            settings.Time = 50;
+            _settings.Time = 50;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            settings.Time = 60;
+            _settings.Time = 60;
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            settings.Stitch();
+            _settings.Stitch();
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            settings.Disney();
+            _settings.Disney();
         }
     }
 }
