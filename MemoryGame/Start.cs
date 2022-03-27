@@ -17,6 +17,7 @@ namespace MemoryGame
         private List<Image> _images;
         private Dictionary<String, Button> _visible;
         private int _currentTime;
+        private Dictionary<Button, int> _timers;
 
         public Start(Settings settings, Form1 start)
         {
@@ -73,7 +74,7 @@ namespace MemoryGame
         private List<string> Shuffle()
         {
             List<string> pNames = new List<string>();
-            string pathStatic = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\Stitch\";
+            string pathStatic = _settings.Path;
 
             Random random = new Random();
             int number;
@@ -107,6 +108,7 @@ namespace MemoryGame
             labelScore.Text = $"Score: {_score}";
             labelTimer.Text = $"Time: {_time}";
             _time++;
+            timeLimit();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -114,11 +116,13 @@ namespace MemoryGame
             tableLayoutPanel1.Hide();
             tableLayoutPanel1.Controls.Clear();
             
+            timer1.Enabled = true;
             timer2.Enabled = true;
             timer3.Enabled = true;
             _score = 0;
             _time = 0;
             _visible = new Dictionary<String, Button>();
+            _timers = new Dictionary<Button, int>();
 
             foreach (var path in Shuffle())
             {
@@ -131,6 +135,7 @@ namespace MemoryGame
                     {
                         imgControl.Image = _images[tableLayoutPanel1.Controls.IndexOf(imgControl)];
                         imgControl.BackColor = Color.SeaShell;
+
                         if(_visible.ContainsKey(path))
                         {
                             _score++;
@@ -139,10 +144,12 @@ namespace MemoryGame
                             imgControl.Enabled = false;
                             _visible[path].Enabled = false;
                             _visible.Remove(path);
+                            _timers.Remove(imgControl);
                         }
                         else
                         {
-                            _visible[path] = imgControl;   
+                            _visible[path] = imgControl;
+                            _timers[imgControl] = _clickTime;
                         }
 
                     } else
@@ -150,10 +157,12 @@ namespace MemoryGame
                         imgControl.Image = null;
                         imgControl.BackColor = Color.LightSlateGray;
                         _visible.Remove(path);
+                        _timers.Remove(imgControl);
                     }
 
                     _movements++;
                     labelMovements.Text = _movements + " Moves";
+                    
                 };
                 
 
@@ -166,11 +175,40 @@ namespace MemoryGame
 
                 tableLayoutPanel1.Controls[tableLayoutPanel1.Controls.Count - 1].Anchor =
                     AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+
             }
 
             tableLayoutPanel1.Show();
 
-            timer1.Enabled = true;
+
+        }
+
+        private void timeLimit()
+        {
+            foreach (KeyValuePair<String, Button> button in _visible)
+            {
+                if (_timers.ContainsKey(button.Value))
+                {
+                    if (_currentTime - _timers[button.Value] >= _settings.Time)
+                    {
+                        button.Value.Image = null;
+                        button.Value.BackColor = Color.LightSlateGray;
+                        _visible.Remove(button.Key);
+                        _timers.Remove(button.Value);
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void endOfGame()
+        {
+            if (_score * 2 == _settings.Size1 * _settings.Size2)
+            {
+                MessageBox.Show("Congratulations");
+                _start.Show();
+                Close();
+            }
         }
 
         private void timer2_Elapsed(object sender, ElapsedEventArgs e)
@@ -178,7 +216,7 @@ namespace MemoryGame
             _clickTime++;
         }
 
-        private void timer3_Elapsed(object sender, ElapsedEventArgs e)
+        private void timer3_Elapsed_1(object sender, ElapsedEventArgs e)
         {
             _currentTime++;
         }

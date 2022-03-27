@@ -74,5 +74,15 @@ namespace MemoryGame
         {
             settings.Time = 60;
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            settings.Stitch();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            settings.Disney();
+        }
     }
 }
