@@ -11,23 +11,28 @@ namespace MemoryGame
         private Settings _settings;
         private Form1 _start;
         private Statistics _statistics;
+        
         private int _score;
         private int _time;
         private int _clickTime;
         private int _movements;
-        private List<Image> _images;
-        private Dictionary<String, Button> _visible;
         private int _currentTime;
+        private int _pause;
+        
+        private readonly List<Image> _images;
+        private readonly List<Button> _buttons;
+        private Dictionary<String, Button> _visible;
         private Dictionary<Button, int> _timers;
 
         public Start(Settings settings, Form1 start)
         {
-            InitializeComponent();
-            
             _settings = settings;
             _start = start;
+            
             _images = new List<Image>();
+            _buttons = new List<Button>();
 
+            InitializeComponent();
             InitWall();
         }
 
@@ -112,34 +117,31 @@ namespace MemoryGame
             TimeLimit();
         }
 
-        private void ShowTime(List<String> paths)
+        /*private void SetButtons()
+        {
+            List<String> imgPath = Shuffle();
+            foreach (string path in imgPath)
+            {
+                var imgControl = new Button();
+                
+                _buttons.Add(imgControl);
+            }
+        }*/
+
+        private void ShowTime()
         {
             tableLayoutPanel1.Hide();
             tableLayoutPanel1.Controls.Clear();
             
-            foreach (var path in paths)
+            foreach (var button in _buttons)
             {
-                var imgControl = new Button();
-                var imageIcon = Image.FromFile(path);
-                imgControl.Image = _images[tableLayoutPanel1.Controls.IndexOf(imgControl)];
-                imageIcon = new Bitmap(imageIcon, new Size(imageIcon.Size.Width / 2, imageIcon.Size.Height / 2));
-
-                imgControl.Size = imageIcon.Size;
-
-                _images.Add(imageIcon);
-                tableLayoutPanel1.Controls.Add(imgControl);
-
-                tableLayoutPanel1.Controls[tableLayoutPanel1.Controls.Count - 1].Anchor =
-                    AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+                button.PerformClick();
             }
             tableLayoutPanel1.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tableLayoutPanel1.Hide();
-            tableLayoutPanel1.Controls.Clear();
-            
             timer1.Enabled = true;
             timer2.Enabled = true;
             timer3.Enabled = true;
@@ -150,10 +152,15 @@ namespace MemoryGame
 
             List<String> imgPath = Shuffle();
 
+            tableLayoutPanel1.Hide();
+            tableLayoutPanel1.Controls.Clear();
+
             foreach (var path in imgPath)
             {
                 var imgControl = new Button();
                 var imageIcon = Image.FromFile(path);
+                
+                _buttons.Add(imgControl);
 
                 imgControl.Click += (o, args) =>
                 {
@@ -162,7 +169,7 @@ namespace MemoryGame
                         imgControl.Image = _images[tableLayoutPanel1.Controls.IndexOf(imgControl)];
                         imgControl.BackColor = Color.SeaShell;
 
-                        if(_visible.ContainsKey(path))
+                        if (_visible.ContainsKey(path))
                         {
                             _score++;
                             imgControl.BackColor = Color.SeaShell;
@@ -178,7 +185,8 @@ namespace MemoryGame
                             _timers[imgControl] = _clickTime;
                         }
 
-                    } else
+                    }
+                    else
                     {
                         imgControl.Image = null;
                         imgControl.BackColor = Color.LightSlateGray;
@@ -189,11 +197,12 @@ namespace MemoryGame
                     _movements++;
                     labelMovements.Text = _movements + @" Moves";
                     EndOfGame();
-                    
-                };
-                
 
-                imageIcon = new Bitmap(imageIcon, new Size(imageIcon.Size.Width / 2, imageIcon.Size.Height / 2));
+                };
+
+
+                imageIcon = new Bitmap(imageIcon, new Size
+                    (imageIcon.Size.Width / _settings.Scaler, imageIcon.Size.Height / _settings.Scaler));
 
                 imgControl.Size = imageIcon.Size;
 
@@ -202,11 +211,10 @@ namespace MemoryGame
 
                 tableLayoutPanel1.Controls[tableLayoutPanel1.Controls.Count - 1].Anchor =
                     AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
-
+                
             }
 
             tableLayoutPanel1.Show();
-            
         }
 
         private void TimeLimit()
@@ -243,7 +251,7 @@ namespace MemoryGame
                 {
                     _settings.Scores[_settings.Nick] = _time * _movements;   
                 }
-                _settings.scoresToJson();
+                _settings.ScoresToJson();
                 _statistics = new Statistics(_start, _settings);
                 _statistics.Show();
                 
@@ -268,7 +276,10 @@ namespace MemoryGame
 
         private void sToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _settings.Time -= 2;
+            if (_settings.Time > 2)
+            {
+                _settings.Time -= 2;
+            }
         }
 
         private void sToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -278,7 +289,23 @@ namespace MemoryGame
 
         private void sToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            _settings.Time -= 3;
+            if (_settings.Time > 3)
+            {
+                _settings.Time -= 3;
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (_pause == 1)
+            {
+                _pause = 0;
+                start_.PerformClick();
+            }
+            else
+            {
+                _pause = 1;
+            }
         }
     }
 }

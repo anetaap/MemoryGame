@@ -50,6 +50,7 @@ namespace MemoryGame
             this.increaseTimeBYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.sToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.timer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.timer3)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -177,14 +178,14 @@ namespace MemoryGame
             // sToolStripMenuItem
             // 
             this.sToolStripMenuItem.Name = "sToolStripMenuItem";
-            this.sToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.sToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
             this.sToolStripMenuItem.Text = "2s";
             this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
             // 
             // sToolStripMenuItem1
             // 
             this.sToolStripMenuItem1.Name = "sToolStripMenuItem1";
-            this.sToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
+            this.sToolStripMenuItem1.Size = new System.Drawing.Size(92, 24);
             this.sToolStripMenuItem1.Text = "3s";
             this.sToolStripMenuItem1.Click += new System.EventHandler(this.sToolStripMenuItem1_Click);
             // 
@@ -209,12 +210,23 @@ namespace MemoryGame
             this.sToolStripMenuItem3.Text = "3s";
             this.sToolStripMenuItem3.Click += new System.EventHandler(this.sToolStripMenuItem3_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 61);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 43);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1241, 819);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.start_);
             this.Controls.Add(this.labelMovements);
@@ -234,6 +246,8 @@ namespace MemoryGame
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button button2;
 
         private System.Windows.Forms.ToolStripMenuItem increaseTimeBYToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem2;
@@ -256,8 +270,7 @@ namespace MemoryGame
         private System.Windows.Forms.Timer timer1;
 
         private System.Windows.Forms.Label labelTimer;
-
-        private System.Windows.Forms.Label label3;
+        
         private System.Windows.Forms.Label labelMovements;
 
         private System.Windows.Forms.Label labelScore;

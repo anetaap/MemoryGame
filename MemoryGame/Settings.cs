@@ -8,69 +8,85 @@ namespace MemoryGame
     public class Settings
     {
         private String _nick;
-        private int time = 5;
-        private int size1 = 6;
-        private int size2 = 8;
+        private int _time = 5;
+        private int _showtime = 10;
+        private int _size1 = 6;
+        private int _size2 = 8;
+        private int _scaler = 2;
         private string _path;
-        private StreamReader _file;
-        private StreamWriter _file_;
-        private String _json;
+        private String _jsonpath = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json";
+        private StreamReader _fileReader;
+        private StreamWriter _fileWriter;
         private Dictionary<String, int> _scores;
 
         public StreamReader File
         {
-            get => _file;
-            set => _file = value;
+            get => _fileReader;
+            set => _fileReader = value;
         }
         public StreamWriter File_
         {
-            get => _file_;
-            set => _file_ = value;
+            get => _fileWriter;
+            set => _fileWriter = value;
+        }
+        public string Jsonpath
+        {
+            get => _jsonpath;
+            set => _jsonpath = value;
         }
         public Dictionary<string, int> Scores
         {
             get => _scores;
             set => _scores = value;
         }
-
-        public void scoresToJson()
+        public int Scaler
         {
-            _file.Close();
-            _file_= new StreamWriter
-                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json");
-            String _newScore = JsonConvert.SerializeObject(_scores);
-            _file_.Write(_newScore);
+            get => _scaler;
+            set => _scaler = value;
+        }
+
+        public int Showtime
+        {
+            get => _showtime;
+            set => _showtime = value;
+        }
+        
+        public void ScoresToJson()
+        {
+            _fileReader.Close();
+            _fileWriter= new StreamWriter(_jsonpath);
+            String newScore = JsonConvert.SerializeObject(_scores);
+            _fileWriter.Write(newScore);
             
-            _file_.Close();
+            _fileWriter.Close();
         }
 
         public Settings(String nick)
         {
             _nick = nick;
             _path = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\Stitch\";
-            _file = new StreamReader
-                (@"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json");
-            _json = _file.ReadToEnd();
-            _scores = JsonConvert.DeserializeObject<Dictionary<String, int>>(_json);
+            _fileReader = new StreamReader(_jsonpath);
+            String json = _fileReader.ReadToEnd();
+            _scores = JsonConvert.DeserializeObject<Dictionary<String, int>>(json);
             
-            _file.Close();
+            _fileReader.Close();
         }
 
         public int Time
         {
-            get => time;
-            set => time = value;
+            get => _time;
+            set => _time = value;
         }
 
         public int Size1
         {
-            get => size1;
-            set => size1 = value;
+            get => _size1;
+            set => _size1 = value;
         }        
         public int Size2
         {
-            get => size2;
-            set => size2 = value;
+            get => _size2;
+            set => _size2 = value;
         }
 
         public String Nick

@@ -15,10 +15,10 @@ namespace MemoryGame
             _settings = settings;
             _start = start;
             
-            showStats();
+            ShowStats();
         }
 
-        private void showStats()
+        private void ShowStats()
         {
             var sortedDict = from entry 
                 in _settings.Scores orderby entry.Value ascending select entry;
@@ -33,7 +33,7 @@ namespace MemoryGame
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void button1_Click(object sender, EventArgs e)

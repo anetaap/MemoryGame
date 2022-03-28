@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MemoryGame
 {
     public partial class Form1 : Form
     {
-        private Start StartGame;
+        private Start _startGame;
         private Configuration _configuration;
-        private Settings player;
+        private Settings _settings;
         public Form1()
         {
             InitializeComponent();
@@ -23,43 +15,43 @@ namespace MemoryGame
 
         public Form1(Settings settings)
         {
-            player = settings;
+            _settings = settings;
         }
 
-        private void start()
+        private void Start()
         {
             String name = textBox1.Text;
 
             if (name.Length == 0)
             {
-                MessageBox.Show("You have to enter your nick!");
+                MessageBox.Show(@"You have to enter your nick!");
             }
             else
             {
-                player = new Settings(name);
+                _settings = new Settings(name);
             }
         }
         private void button1_Click(object sender, EventArgs e)
         {
             
-            if(player == null)
-                start();
+            if(_settings == null)
+                Start();
             else
             {
-                StartGame = new Start(player, this);
+                _startGame = new Start(_settings, this);
             
-                StartGame.Show();
+                _startGame.Show();
                 Hide();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(player == null)
-                start();
+            if(_settings == null)
+                Start();
             else
             {
-                _configuration  = new Configuration(player, this);
+                _configuration  = new Configuration(_settings, this);
             
                 _configuration.Show();
                 Hide();   
