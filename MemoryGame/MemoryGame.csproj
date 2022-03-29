@@ -177,11 +177,11 @@
       <Content Include="Disney\(7).png" />
       <Content Include="Disney\(8).png" />
       <Content Include="Disney\(9).png" />
-      <Content Include="scores1.json" />
-      <Content Include="scores2.json" />
-      <Content Include="scores3.json" />
-      <Content Include="scores4.json" />
-      <Content Include="scores5.json" />
+      <Content Include="ScoreFiles\scores1.json" />
+      <Content Include="ScoreFiles\scores2.json" />
+      <Content Include="ScoreFiles\scores3.json" />
+      <Content Include="ScoreFiles\scores4.json" />
+      <Content Include="ScoreFiles\scores5.json" />
       <Content Include="Stitch\(1).png" />
       <Content Include="Stitch\(10).png" />
       <Content Include="Stitch\(11).png" />

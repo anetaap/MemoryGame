@@ -15,7 +15,8 @@ namespace MemoryGame
         private string _path;
         
         private String _nick;
-        private String _jsonpath = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json";
+        private String _jsonpath = 
+            @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\ScoreFiles\scores1.json";
         
         private StreamReader _fileReader;
         private StreamWriter _fileWriter;
