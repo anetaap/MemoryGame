@@ -50,7 +50,7 @@ namespace MemoryGame
             this.increaseTimeBYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.sToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pause = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.timer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.timer3)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -179,14 +179,14 @@ namespace MemoryGame
             // 
             this.sToolStripMenuItem.Name = "sToolStripMenuItem";
             this.sToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
-            this.sToolStripMenuItem.Text = "2s";
+            this.sToolStripMenuItem.Text = "1s";
             this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
             // 
             // sToolStripMenuItem1
             // 
             this.sToolStripMenuItem1.Name = "sToolStripMenuItem1";
             this.sToolStripMenuItem1.Size = new System.Drawing.Size(92, 24);
-            this.sToolStripMenuItem1.Text = "3s";
+            this.sToolStripMenuItem1.Text = "2s";
             this.sToolStripMenuItem1.Click += new System.EventHandler(this.sToolStripMenuItem1_Click);
             // 
             // increaseTimeBYToolStripMenuItem
@@ -200,25 +200,25 @@ namespace MemoryGame
             // 
             this.sToolStripMenuItem2.Name = "sToolStripMenuItem2";
             this.sToolStripMenuItem2.Size = new System.Drawing.Size(92, 24);
-            this.sToolStripMenuItem2.Text = "2s";
+            this.sToolStripMenuItem2.Text = "1s";
             this.sToolStripMenuItem2.Click += new System.EventHandler(this.sToolStripMenuItem2_Click);
             // 
             // sToolStripMenuItem3
             // 
             this.sToolStripMenuItem3.Name = "sToolStripMenuItem3";
             this.sToolStripMenuItem3.Size = new System.Drawing.Size(92, 24);
-            this.sToolStripMenuItem3.Text = "3s";
+            this.sToolStripMenuItem3.Text = "2s";
             this.sToolStripMenuItem3.Click += new System.EventHandler(this.sToolStripMenuItem3_Click);
             // 
-            // button2
+            // pause
             // 
-            this.button2.Location = new System.Drawing.Point(12, 61);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 43);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.pause.Location = new System.Drawing.Point(0, 56);
+            this.pause.Name = "pause";
+            this.pause.Size = new System.Drawing.Size(102, 43);
+            this.pause.TabIndex = 12;
+            this.pause.Text = "Pause";
+            this.pause.UseVisualStyleBackColor = true;
+            this.pause.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Start
             // 
@@ -226,7 +226,7 @@ namespace MemoryGame
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1241, 819);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.pause);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.start_);
             this.Controls.Add(this.labelMovements);
@@ -247,7 +247,7 @@ namespace MemoryGame
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button pause;
 
         private System.Windows.Forms.ToolStripMenuItem increaseTimeBYToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem2;

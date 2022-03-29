@@ -25,7 +25,7 @@ namespace MemoryGame
         {
             _settings.Size1 = 6;
             _settings.Size2 = 8;
-            _settings.Scaler = 2;
+            _settings.Scaler = 3;
             _settings.Jsonpath = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json";
         }
 

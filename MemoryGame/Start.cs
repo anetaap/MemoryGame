@@ -18,10 +18,11 @@ namespace MemoryGame
         private int _movements;
         private int _currentTime;
         private int _pause;
+        private int _showtime;
 
         private List<Button> _cards;
         private readonly List<Image> _images;
-        private readonly List<Button> _buttons;
+        private readonly Dictionary<Button, String> _buttons;
         private Dictionary<String, Button> _visible;
         private Dictionary<Button, int> _timers;
 
@@ -31,7 +32,7 @@ namespace MemoryGame
             _start = start;
             
             _images = new List<Image>();
-            _buttons = new List<Button>();
+            _buttons = new Dictionary<Button, string>();
 
             InitializeComponent();
             InitWall();
@@ -131,16 +132,56 @@ namespace MemoryGame
 
         private void ShowTime()
         {
-            tableLayoutPanel1.Hide();
-            tableLayoutPanel1.Controls.Clear();
-            
+            _showtime = _settings.Showtime;
             foreach (var button in _buttons)
             {
-                button.PerformClick();
+                button.Key.Image = _images[tableLayoutPanel1.Controls.IndexOf(button.Key)];
+                button.Key.BackColor = Color.SeaShell;
             }
-            tableLayoutPanel1.Show();
         }
 
+        private void ButtonClick(Button imgControl, String path)
+        {
+            imgControl.Click += (o, args) =>
+            {
+                if (imgControl.Image == null && _visible.Count < 2)
+                {
+                    imgControl.Image = _images[tableLayoutPanel1.Controls.IndexOf(imgControl)];
+                    imgControl.BackColor = Color.SeaShell;
+
+                    if (_visible.ContainsKey(path))
+                    {
+                        _score++;
+                        imgControl.BackColor = Color.SeaShell;
+                        _visible[path].BackColor = Color.SeaShell;
+                        imgControl.Enabled = false;
+                        _visible[path].Enabled = false;
+                        _visible.Remove(path);
+                        _timers.Remove(imgControl);
+                        _cards.Clear();
+                    }
+                    else
+                    {
+                        _visible[path] = imgControl;
+                        _timers[imgControl] = _clickTime;
+                        _cards.Add(imgControl);
+                    }
+
+                }
+                else
+                {
+                    imgControl.Image = null;
+                    imgControl.BackColor = Color.LightSlateGray;
+                    _visible.Remove(path);
+                    _timers.Remove(imgControl);
+                    _cards.Remove(imgControl);
+                }
+
+                _movements++;
+                labelMovements.Text = _movements + @" Moves";
+                EndOfGame();
+            };
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             timer1.Enabled = true;
@@ -162,49 +203,9 @@ namespace MemoryGame
                 var imgControl = new Button();
                 var imageIcon = Image.FromFile(path);
                 
-                _buttons.Add(imgControl);
+                _buttons[imgControl] = path;
 
-                imgControl.Click += (o, args) =>
-                {
-                    if (imgControl.Image == null && _visible.Count < 2)
-                    {
-                        imgControl.Image = _images[tableLayoutPanel1.Controls.IndexOf(imgControl)];
-                        imgControl.BackColor = Color.SeaShell;
-
-                        if (_visible.ContainsKey(path))
-                        {
-                            _score++;
-                            imgControl.BackColor = Color.SeaShell;
-                            _visible[path].BackColor = Color.SeaShell;
-                            imgControl.Enabled = false;
-                            _visible[path].Enabled = false;
-                            _visible.Remove(path);
-                            _timers.Remove(imgControl);
-                            _cards.Remove(imgControl);
-                        }
-                        else
-                        {
-                            _visible[path] = imgControl;
-                            _timers[imgControl] = _clickTime;
-                            _cards.Add(imgControl);
-                        }
-
-                    }
-                    else
-                    {
-                        imgControl.Image = null;
-                        imgControl.BackColor = Color.LightSlateGray;
-                        _visible.Remove(path);
-                        _timers.Remove(imgControl);
-                        _cards.Remove(imgControl);
-                    }
-
-                    _movements++;
-                    labelMovements.Text = _movements + @" Moves";
-                    EndOfGame();
-
-                };
-
+                ButtonClick(imgControl, path);
 
                 imageIcon = new Bitmap(imageIcon, new Size
                     (imageIcon.Size.Width / _settings.Scaler, imageIcon.Size.Height / _settings.Scaler));
@@ -218,7 +219,6 @@ namespace MemoryGame
                     AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
                 
             }
-
             tableLayoutPanel1.Show();
         }
 
@@ -261,7 +261,6 @@ namespace MemoryGame
                 _settings.ScoresToJson();
                 _statistics = new Statistics(_start, _settings);
                 _statistics.Show();
-                
                 Close();
             }
         }
@@ -278,27 +277,27 @@ namespace MemoryGame
 
         private void sToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            _settings.Time += 2;
+            _settings.Time += 1;
         }
 
         private void sToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_settings.Time > 2)
+            if (_settings.Time > 1)
             {
-                _settings.Time -= 2;
+                _settings.Time -= 1;
             }
         }
 
         private void sToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            _settings.Time += 3;
+            _settings.Time += 2;
         }
 
         private void sToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (_settings.Time > 3)
+            if (_settings.Time > 2)
             {
-                _settings.Time -= 3;
+                _settings.Time -= 2;
             }
         }
 
@@ -307,11 +306,20 @@ namespace MemoryGame
             if (_pause == 1)
             {
                 _pause = 0;
-                start_.PerformClick();
+                timer1.Enabled = true;
             }
             else
             {
                 _pause = 1;
+                _visible.Clear();
+                _timers.Clear();
+                foreach (Button card in _cards)
+                {
+                    card.Image = null;
+                    card.BackColor = Color.LightSlateGray;
+                    timer1.Enabled = false;
+                }
+                _cards.Clear();
             }
         }
     }

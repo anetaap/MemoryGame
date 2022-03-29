@@ -12,7 +12,7 @@ namespace MemoryGame
         private int _showtime = 10;
         private int _size1 = 6;
         private int _size2 = 8;
-        private int _scaler = 2;
+        private int _scaler = 3;
         private string _path;
         private String _jsonpath = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\scores1.json";
         private StreamReader _fileReader;
