@@ -51,6 +51,7 @@ namespace MemoryGame
             this.sToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.sToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.pause = new System.Windows.Forms.Button();
+            this.show = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.timer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.timer3)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -62,7 +63,7 @@ namespace MemoryGame
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 28.2F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.label2.Location = new System.Drawing.Point(138, -1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(979, 85);
+            this.label2.Size = new System.Drawing.Size(987, 85);
             this.label2.TabIndex = 4;
             this.label2.Text = "MEMORY GAME";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -70,9 +71,9 @@ namespace MemoryGame
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 754);
+            this.button1.Location = new System.Drawing.Point(0, 786);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1241, 65);
+            this.button1.Size = new System.Drawing.Size(1249, 65);
             this.button1.TabIndex = 5;
             this.button1.Text = "Finish";
             this.button1.UseVisualStyleBackColor = true;
@@ -82,7 +83,7 @@ namespace MemoryGame
             // 
             this.labelScore.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelScore.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.labelScore.Location = new System.Drawing.Point(0, 669);
+            this.labelScore.Location = new System.Drawing.Point(0, 701);
             this.labelScore.Name = "labelScore";
             this.labelScore.Size = new System.Drawing.Size(179, 49);
             this.labelScore.TabIndex = 6;
@@ -92,7 +93,7 @@ namespace MemoryGame
             // 
             this.labelTimer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelTimer.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.labelTimer.Location = new System.Drawing.Point(528, 669);
+            this.labelTimer.Location = new System.Drawing.Point(532, 701);
             this.labelTimer.Name = "labelTimer";
             this.labelTimer.Size = new System.Drawing.Size(178, 49);
             this.labelTimer.TabIndex = 7;
@@ -102,7 +103,7 @@ namespace MemoryGame
             // 
             this.labelMovements.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMovements.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.labelMovements.Location = new System.Drawing.Point(1062, 669);
+            this.labelMovements.Location = new System.Drawing.Point(1070, 701);
             this.labelMovements.Name = "labelMovements";
             this.labelMovements.Size = new System.Drawing.Size(179, 49);
             this.labelMovements.TabIndex = 8;
@@ -116,9 +117,9 @@ namespace MemoryGame
             // start_
             // 
             this.start_.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.start_.Location = new System.Drawing.Point(0, 592);
+            this.start_.Location = new System.Drawing.Point(0, 624);
             this.start_.Name = "start_";
-            this.start_.Size = new System.Drawing.Size(1241, 59);
+            this.start_.Size = new System.Drawing.Size(1249, 59);
             this.start_.TabIndex = 9;
             this.start_.Text = "Start";
             this.start_.UseVisualStyleBackColor = true;
@@ -137,7 +138,7 @@ namespace MemoryGame
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.18939F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.81061F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1241, 469);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1249, 501);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // timer2
@@ -157,7 +158,7 @@ namespace MemoryGame
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1241, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1249, 28);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -212,20 +213,32 @@ namespace MemoryGame
             // 
             // pause
             // 
+            this.pause.BackColor = System.Drawing.Color.DarkGray;
             this.pause.Location = new System.Drawing.Point(0, 56);
             this.pause.Name = "pause";
             this.pause.Size = new System.Drawing.Size(102, 43);
             this.pause.TabIndex = 12;
             this.pause.Text = "Pause";
-            this.pause.UseVisualStyleBackColor = true;
+            this.pause.UseVisualStyleBackColor = false;
             this.pause.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // show
+            // 
+            this.show.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.show.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.show.Location = new System.Drawing.Point(1147, 56);
+            this.show.Name = "show";
+            this.show.Size = new System.Drawing.Size(102, 43);
+            this.show.TabIndex = 13;
+            this.show.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
-            this.ClientSize = new System.Drawing.Size(1241, 819);
+            this.ClientSize = new System.Drawing.Size(1249, 851);
+            this.Controls.Add(this.show);
             this.Controls.Add(this.pause);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.start_);
@@ -246,6 +259,8 @@ namespace MemoryGame
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label show;
 
         private System.Windows.Forms.Button pause;
 

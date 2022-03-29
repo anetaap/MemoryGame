@@ -25,7 +25,7 @@ namespace MemoryGame
             
             foreach (var settingsScore in sortedDict)
             {
-                String score = settingsScore.Key + " best score: " + settingsScore.Value;
+                String score = settingsScore.Key + ", best score: " + settingsScore.Value;
                 listBox1.Items.Add(score);
             }
             

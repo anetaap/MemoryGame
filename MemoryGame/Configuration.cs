@@ -95,5 +95,30 @@ namespace MemoryGame
         {
             _settings.Disney();
         }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            _settings.Showtime = 5;
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            _settings.Showtime = 10;
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            _settings.Showtime = 15;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            _settings.Showtime = 20;
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            _settings.Showtime = 25; 
+        }
     }
 }

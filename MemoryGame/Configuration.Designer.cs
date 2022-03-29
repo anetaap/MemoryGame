@@ -49,6 +49,12 @@ namespace MemoryGame
             this.label4 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +86,7 @@ namespace MemoryGame
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Location = new System.Drawing.Point(255, 480);
+            this.button1.Location = new System.Drawing.Point(255, 556);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(536, 46);
             this.button1.TabIndex = 5;
@@ -206,7 +212,7 @@ namespace MemoryGame
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(96, 393);
+            this.label4.Location = new System.Drawing.Point(96, 469);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(144, 42);
             this.label4.TabIndex = 17;
@@ -215,7 +221,7 @@ namespace MemoryGame
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button12.Location = new System.Drawing.Point(352, 380);
+            this.button12.Location = new System.Drawing.Point(352, 456);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(75, 47);
             this.button12.TabIndex = 18;
@@ -226,7 +232,7 @@ namespace MemoryGame
             // button13
             // 
             this.button13.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button13.Location = new System.Drawing.Point(470, 380);
+            this.button13.Location = new System.Drawing.Point(470, 456);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(75, 47);
             this.button13.TabIndex = 19;
@@ -234,12 +240,81 @@ namespace MemoryGame
             this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button14.Location = new System.Drawing.Point(845, 376);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(75, 47);
+            this.button14.TabIndex = 25;
+            this.button14.Text = "25";
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button15.Location = new System.Drawing.Point(716, 376);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(75, 47);
+            this.button15.TabIndex = 24;
+            this.button15.Text = "20";
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button16.Location = new System.Drawing.Point(588, 376);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(75, 47);
+            this.button16.TabIndex = 23;
+            this.button16.Text = "15";
+            this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button17.Location = new System.Drawing.Point(470, 376);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(75, 47);
+            this.button17.TabIndex = 22;
+            this.button17.Text = "10";
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button18.Location = new System.Drawing.Point(352, 376);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 47);
+            this.button18.TabIndex = 21;
+            this.button18.Text = "5";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(96, 376);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 47);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "DISPLAY TIME FOR ALL CARDS";
+            // 
             // Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
-            this.ClientSize = new System.Drawing.Size(1049, 720);
+            this.ClientSize = new System.Drawing.Size(1065, 784);
+            this.Controls.Add(this.button14);
+            this.Controls.Add(this.button15);
+            this.Controls.Add(this.button16);
+            this.Controls.Add(this.button17);
+            this.Controls.Add(this.button18);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.label4);
@@ -261,6 +336,14 @@ namespace MemoryGame
             this.Text = "Configuration";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button14;
+
+        private System.Windows.Forms.Label label5;
 
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
