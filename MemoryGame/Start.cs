@@ -18,7 +18,8 @@ namespace MemoryGame
         private int _movements;
         private int _currentTime;
         private int _pause;
-        
+
+        private List<Button> _cards;
         private readonly List<Image> _images;
         private readonly List<Button> _buttons;
         private Dictionary<String, Button> _visible;
@@ -149,6 +150,7 @@ namespace MemoryGame
             _time = 0;
             _visible = new Dictionary<String, Button>();
             _timers = new Dictionary<Button, int>();
+            _cards = new List<Button>();
 
             List<String> imgPath = Shuffle();
 
@@ -178,11 +180,13 @@ namespace MemoryGame
                             _visible[path].Enabled = false;
                             _visible.Remove(path);
                             _timers.Remove(imgControl);
+                            _cards.Remove(imgControl);
                         }
                         else
                         {
                             _visible[path] = imgControl;
                             _timers[imgControl] = _clickTime;
+                            _cards.Add(imgControl);
                         }
 
                     }
@@ -192,6 +196,7 @@ namespace MemoryGame
                         imgControl.BackColor = Color.LightSlateGray;
                         _visible.Remove(path);
                         _timers.Remove(imgControl);
+                        _cards.Remove(imgControl);
                     }
 
                     _movements++;
@@ -219,17 +224,19 @@ namespace MemoryGame
 
         private void TimeLimit()
         {
-            foreach (KeyValuePair<String, Button> button in _visible)
+            if (_cards.Count == 2)
             {
-                if (_timers.ContainsKey(button.Value))
+                if (_timers.ContainsKey(_cards[1]))
                 {
-                    if (_currentTime - _timers[button.Value] >= _settings.Time)
+                    if (_currentTime - _timers[_cards[1]] >= _settings.Time)
                     {
-                        button.Value.Image = null;
-                        button.Value.BackColor = Color.LightSlateGray;
-                        _visible.Remove(button.Key);
-                        _timers.Remove(button.Value);
-                        break;
+                        _cards[0].Image = null;
+                        _cards[1].Image = null;
+                        _cards[0].BackColor = Color.LightSlateGray;
+                        _cards[1].BackColor = Color.LightSlateGray;
+                        _visible.Clear();
+                        _timers.Clear();
+                        _cards.Clear();
                     }
                 }
             }
