@@ -9,8 +9,8 @@ namespace MemoryGame
     {
         private int _time = 5;
         private int _showtime = 10;
-        private int _size1 = 2;
-        private int _size2 = 3;
+        private int _size1 = 6;
+        private int _size2 = 8;
         private int _scaler = 3;
         private string _path;
         
