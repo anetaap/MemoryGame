@@ -23,10 +23,13 @@ namespace MemoryGame
             var sortedDict = from entry 
                 in _settings.Scores orderby entry.Value ascending select entry;
             
+            int i = 1;
+            
             foreach (var settingsScore in sortedDict)
             {
-                String score = settingsScore.Key + ", best score: " + settingsScore.Value;
+                String score = i +". " + settingsScore.Key + ", best score: " + settingsScore.Value;
                 listBox1.Items.Add(score);
+                i++;
             }
             
         }
