@@ -26,7 +26,7 @@ namespace MemoryGame
             _settings.Size2 = 8;
             _settings.Scaler = 3;
             _settings.Jsonpath = 
-                @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\ScoreFiles\scores1.json";
+                @"../../ScoreFiles\scores1.json";
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace MemoryGame
             _settings.Size2 = 9;
             _settings.Scaler = 3;
             _settings.Jsonpath = 
-                @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\ScoreFiles\scores2.json";
+                @"../../ScoreFiles\scores2.json";
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace MemoryGame
             _settings.Size2 = 10;
             _settings.Scaler = 3;
             _settings.Jsonpath = 
-                @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\ScoreFiles\scores3.json";
+                @"../../ScoreFiles\scores3.json";
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace MemoryGame
             _settings.Size2 = 10;
             _settings.Scaler = 4;
             _settings.Jsonpath = 
-                @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\ScoreFiles\scores4.json";
+                @"../../ScoreFiles\scores4.json";
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace MemoryGame
             _settings.Size2 = 12;
             _settings.Scaler = 4;
             _settings.Jsonpath = 
-                @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\ScoreFiles\scores5.json";
+                @"../../ScoreFiles\scores5.json";
         }
 
         private void button11_Click(object sender, EventArgs e)

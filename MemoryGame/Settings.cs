@@ -16,7 +16,7 @@ namespace MemoryGame
         
         private String _nick;
         private String _jsonpath = 
-            @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\ScoreFiles\scores1.json";
+            @"../../ScoreFiles\scores1.json";
         
         private StreamReader _fileReader;
         private StreamWriter _fileWriter;
@@ -68,7 +68,7 @@ namespace MemoryGame
         public Settings(String nick)
         {
             _nick = nick;
-            _path = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\Stitch\";
+            _path = @"../../Stitch\";
             _fileReader = new StreamReader(_jsonpath);
             String json = _fileReader.ReadToEnd();
             _scores = JsonConvert.DeserializeObject<Dictionary<String, int>>(json);
@@ -106,12 +106,12 @@ namespace MemoryGame
         }
         public void Disney()
         {
-            Path = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\Disney\";
+            Path = @"../../Disney\";
         }
 
         public void Stitch()
         {
-            Path = @"C:\Users\aneta_p\Documents\Studia\Semestr_4\PZ2\MemoryGame\MemoryGame\Stitch\";
+            Path = @"../../Stitch\";
         }
     }
 }
