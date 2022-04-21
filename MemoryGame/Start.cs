@@ -78,6 +78,7 @@ namespace MemoryGame
             }
         }
         
+        // shuffling the list of cards
         private List<string> Shuffle()
         {
             List<string> pNames = new List<string>();
@@ -104,6 +105,7 @@ namespace MemoryGame
             return pNames;
         }
 
+        // close the page
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
@@ -119,6 +121,7 @@ namespace MemoryGame
             TimeLimit();
         }
 
+        // show all the images
         private void ShowTime()
         {
             foreach (var button in _buttons)
@@ -128,6 +131,7 @@ namespace MemoryGame
             }
         }
 
+        // finish showing of all the images
         private void EndOfShowTime()
         {
             foreach (var button in _buttons)
@@ -139,7 +143,8 @@ namespace MemoryGame
             }
         }
 
-        private void ButtonClick(Button imgControl, String path)
+        // rules of displaying/hiding image after clicking the card button 
+        private void ClickingCardRules(Button imgControl, String path)
         {
             imgControl.Click += (o, args) =>
             {
@@ -147,6 +152,8 @@ namespace MemoryGame
                 {
                     imgControl.Image = _buttons[imgControl];
                     imgControl.BackColor = Color.SeaShell;
+                    
+                    _movements++;
 
                     if (_visible.ContainsKey(path))
                     {
@@ -179,13 +186,14 @@ namespace MemoryGame
                     _timers.Remove(imgControl);
                     _cards.Remove(imgControl);
                 }
-
-                _movements++;
+                
                 labelMovements.Text = _movements + @" Moves";
                 
                 EndOfGame();
             };
         }
+        
+        // Start button clicking 
         private void button2_Click(object sender, EventArgs e)
         {
             timer2.Enabled = true;
@@ -196,24 +204,24 @@ namespace MemoryGame
             _timers = new Dictionary<Button, int>();
             _cards = new List<Button>();
 
-            List<String> imgPath = Shuffle();
+            List<String> imgPath = Shuffle(); // creating list of image paths
 
             tableLayoutPanel1.Hide();
             tableLayoutPanel1.Controls.Clear();
 
             foreach (var path in imgPath)
             {
-                var imgControl = new Button();
-                var imageIcon = Image.FromFile(path);
+                var imgControl = new Button(); // creating button on card 
+                var imageIcon = Image.FromFile(path); // getting image from path
 
-                ButtonClick(imgControl, path);
+                ClickingCardRules(imgControl, path);
 
+                //resizing image
                 imageIcon = new Bitmap(imageIcon, new Size
                     (imageIcon.Size.Width / _settings.Scaler, imageIcon.Size.Height / _settings.Scaler));
 
                 imgControl.Size = imageIcon.Size;
-
-               // _images.Add(imageIcon);
+                
                 _buttons[imgControl] = imageIcon;
                 tableLayoutPanel1.Controls.Add(imgControl);
 
@@ -225,6 +233,7 @@ namespace MemoryGame
             tableLayoutPanel1.Show();
         }
 
+        // card display timeout
         private void TimeLimit()
         {
             if (_cards.Count == 2)
@@ -245,6 +254,7 @@ namespace MemoryGame
             }
         }
 
+        // end of game after matching all of the cards 
         private void EndOfGame()
         {
             if (_score * 2 == _settings.Size1 * _settings.Size2)
@@ -289,11 +299,13 @@ namespace MemoryGame
             }
         }
 
+        // time increasing
         private void sToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             _settings.Time += 1;
         }
 
+        // time reducing 
         private void sToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_settings.Time > 1)
@@ -302,11 +314,13 @@ namespace MemoryGame
             }
         }
 
+        // time increasing
         private void sToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             _settings.Time += 2;
         }
 
+        // time reducing
         private void sToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (_settings.Time > 2)
@@ -315,6 +329,7 @@ namespace MemoryGame
             }
         }
 
+        // Pause button
         private void button2_Click_1(object sender, EventArgs e)
         {
             if (_pause == 1)

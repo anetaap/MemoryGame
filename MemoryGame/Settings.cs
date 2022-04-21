@@ -7,7 +7,7 @@ namespace MemoryGame
 {
     public class Settings
     {
-        private int _time = 5;
+        private int _time = 1;
         private int _showtime = 10;
         private int _size1 = 6;
         private int _size2 = 8;
